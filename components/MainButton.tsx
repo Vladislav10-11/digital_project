@@ -5,11 +5,11 @@ interface IMainButton {
 }
 const MainButton: FC<IMainButton> = ({ children, className }) => {
   return (
-    <div
+    <button
       className={`flex justify-center items-center bg-bgColor py-6 px-12 gap-6 cursor-pointer ${className}`}
     >
       {children}
-    </div>
+    </button>
   );
 };
 

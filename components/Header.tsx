@@ -3,6 +3,19 @@ import logo from "@/icons/logo.svg";
 import Image from "next/image";
 import Link from "next/link";
 
+interface Links {
+  title: string;
+  link: string;
+}
+
+const links: Links[] = [
+  { title: "ГЛАВНАЯ", link: "#" },
+  { title: "ГАЛЕРЕЯ", link: "#" },
+  { title: "ПРОЕКТЫ", link: "#" },
+  { title: "СЕРТИФИКАТЫ", link: "#" },
+  { title: "КОНТАКТЫ", link: "#" },
+];
+
 const Header: FC = () => {
   return (
     <header>
@@ -12,21 +25,14 @@ const Header: FC = () => {
         </div>
         <nav>
           <ul className="flex gap-14 font-sans text-xs">
-            <li>
-              <Link href={"#"}>ГЛАВНАЯ</Link>
-            </li>
-            <li>
-              <Link href={"#"}>ГАЛЕРЕЯ</Link>
-            </li>
-            <li>
-              <Link href={"#"}>ПРОЕКТЫ</Link>
-            </li>
-            <li>
-              <Link href={"#"}>СЕРТИФИКАТЫ</Link>
-            </li>
-            <li>
-              <Link href={"#"}>КОНТАКТЫ</Link>
-            </li>
+            {links.map((item) => (
+              <li
+                className="hover:underline underline-offset-4"
+                key={item.title}
+              >
+                <Link href={item.link}>{item.title}</Link>
+              </li>
+            ))}
           </ul>
         </nav>
       </div>
